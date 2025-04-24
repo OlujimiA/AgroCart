@@ -101,6 +101,10 @@ function login($conn) {
         
 }
 
+function add_product($conn) {
+
+}
+
 /*function cart($conn){
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
         //Stores all the event information

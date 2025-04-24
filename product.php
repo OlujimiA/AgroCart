@@ -20,6 +20,16 @@ if (!isset($_SESSION['user_id'])) {
         <button>View Cart(0)</button>
     </div>
     <div style="text-align: center;"><h2>Product Addition</h2></div>
+    <div>
+        <form method="POST" action="">
+        <label for="email">Product name:</label><br>
+        <input type="text" name="email" id="email"><br><br>
+        <label for="pwd">Price:</label><br>
+        <input type="text" name="pwd" id="pwd"><br><br>
+
+        <button>Submit</button><br>
+        </form>
+    </div>    
 
     
 </body>

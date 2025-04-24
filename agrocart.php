@@ -14,11 +14,7 @@ if (!isset($_SESSION['user_id'])) {
   <title>AgroCart</title>
   <link rel="stylesheet" href="stylesheet.css">
 </head>
-<script>
-  function myFunction() {
-    <?php header("Location: product.php")?>
-  }
-</script>
+
 <body>
   <div style="border-bottom: 1px solid grey; display: flex; justify-content: space-between; align-items: center; padding: 5px 20px;">
     <h1 style="margin: 0;">AgroCart</h1>
@@ -79,5 +75,6 @@ if (!isset($_SESSION['user_id'])) {
       </div></div></td>
     </tr>
   </table>
+  <script src="app.js"></script>
 </body>
 </html>
