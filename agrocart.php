@@ -1,38 +1,31 @@
+<?php require 'query.php';
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+  echo "Access denied. Please log in.";
+  header('Location: login.php'); // Redirect to login page
+  exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AgroCart</title>
-  <style>
-    table {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    td {
-      padding: 10px;
-      vertical-align: top;
-    }
-
-    .cell-content {
-      display: flex;
-      justify-content: center; /* center the block */
-    }
-
-    .content-wrapper {
-      text-align: left;
-      width: max-content; /* shrink to fit content */
-    }
-  </style>
+  <link rel="stylesheet" href="stylesheet.css">
 </head>
+<script>
+  function myFunction() {
+    <?php header("Location: product.php")?>
+  }
+</script>
 <body>
   <div style="border-bottom: 1px solid grey; display: flex; justify-content: space-between; align-items: center; padding: 5px 20px;">
     <h1 style="margin: 0;">AgroCart</h1>
     <input type="text" placeholder="Search">
     <div>
-        <button>Add Product</button>
-        <button>View Cart(0)</button>
+      <?php if ($_SESSION['user_type'] == 'admin' || 'superadmin') {echo '<button onclick="redirect()">Add Product</button>';}?>
+      <button>View Cart(0)</button>
     </div>
   </div>
 
@@ -44,18 +37,21 @@
         Lettuce - fresh(2 days)<br>
         NGN 2,400<br>
         Glovo Farms<br>
+        <input type="number" name="add_to_cart" value="1">
         <button>Add to Cart</button>
       </div></div></td>
       <td><div class="cell-content"><div class="content-wrapper">
         Turnips - preserved(10 days)<br>
         NGN 2,400<br>
         Glovo Farms<br>
+        <input type="number" name="add_to_cart" value="1">
         <button>Add to Cart</button>
       </div></div></td>
       <td><div class="cell-content"><div class="content-wrapper">
         Rasberry (packaged)<br>
         NGN 2,400<br>
         Glovo Farms<br>
+        <input type="number" name="add_to_cart" value="1">
         <button>Add to Cart</button>
       </div></div></td>
     </tr>
@@ -64,18 +60,21 @@
         Lettuce - fresh(2 days)<br>
         NGN 2,400<br>
         Glovo Farms<br>
+        <input type="number" name="add_to_cart" value="1">
         <button>Add to Cart</button>
       </div></div></td>
       <td><div class="cell-content"><div class="content-wrapper">
         Turnips - preserved(10 days)<br>
         NGN 2,400<br>
         Glovo Farms<br>
+        <input type="number" name="add_to_cart" value="1">
         <button>Add to Cart</button>
       </div></div></td>
       <td><div class="cell-content"><div class="content-wrapper">
         Rasberry (packaged)<br>
         NGN 2,400<br>
         Glovo Farms<br>
+        <input type="number" name="add_to_cart" value="1"> 
         <button>Add to Cart</button>
       </div></div></td>
     </tr>

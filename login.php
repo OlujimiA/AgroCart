@@ -1,3 +1,4 @@
+<?php require 'query.php'?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,15 +10,15 @@
         <h1>AgroCart</h1>
         <div>
             <h2>Login</h2>
-            <form action="">
-            <label for="usernameemail">Enter Username/Email:</label><br>
-            <input type="text" name="usernameemail" id="usernameemail"><br><br>
+            <?php echo '<form method="POST" action="'.login($conn).'">'; ?>
+            <label for="email">Email:</label><br>
+            <input type="text" name="email" id="email"><br><br>
             <label for="pwd">Password:</label><br>
             <input type="text" name="pwd" id="pwd"><br><br>
 
             <button>Submit</button><br>
             </form>
         </div>
-        <p>Go to <a href="agrocart.php">AgroCart</a></p>
+
     </body>
 </html>
