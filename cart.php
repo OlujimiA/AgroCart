@@ -1,6 +1,32 @@
-<?php
-    require 'query.php';
-    echo "<h2>Viewing Cart items</h2><br><br>";
-
-    echo "<p style='text-align:center;'>Go back <a href='agrocart.php'>home </a></p>";
+<?php require 'query.php';
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+  echo "Access denied. Please log in.";
+  header('Location: login.php'); // Redirect to login page
+  exit();
+}
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgroCart</title>
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+  <div style="border-bottom: 1px solid grey; display: flex; justify-content: space-between; align-items: center; padding: 5px 20px;">
+    <h1 style="margin: 0;">AgroCart</h1>
+    <input type="text" placeholder="Search">
+    <div>
+      <?php if ($_SESSION['user_type'] == 'admin' || 'superadmin') {echo '<button onclick="redirect()">Add Product</button>';}?>
+      <button onclick="viewcart()">View Cart</button>
+    </div>
+  </div>
+
+  <div style="text-align: center;"><h2>Featured Products</h2></div>
+  <div><?php featured_products($conn)?></div>
+  <script src="app.js"></script>
+</body>
+</html>
